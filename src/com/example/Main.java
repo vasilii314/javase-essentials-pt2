@@ -9,16 +9,27 @@ public class Main {
     public static void main(String[] args) {
 	    // 1
         var emp = new Employee("Anonymous", "Employee", 35) {
+            private String breakText;
+
             @Override
             public void work() {
                 System.out.println("ANONYMOUS_EMPLOYEE: doing something...");
             }
 
             public void takeABreak() {
-                System.out.println("ANONYMOUS_EMPLOYEE: sleeping...");
+                System.out.println("ANONYMOUS_EMPLOYEE: " + breakText);
+            }
+
+            public String getBreakText() {
+                return breakText;
+            }
+
+            public void setBreakText(String breakText) {
+                this.breakText = breakText;
             }
         };
 
+        emp.setBreakText("sleeping...");
         emp.takeABreak();
 
         // 2
